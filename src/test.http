@@ -1,0 +1,20 @@
+### list products
+GET http://localhost:3000/cart
+
+### update product
+PATCH http://localhost:3000/products/6b23a439-f9c4-4618-8bc4-0479d1d7531e
+Content-Type: application/json
+
+{
+  "name": "Updated Product Name",
+  "price": 19.99
+}
+
+### criar carrinho pendente
+POST http://localhost:3000/cart
+Content-Type: application/json
+
+{
+  "totalPrice": 0,
+  "status": "Pendente"
+}

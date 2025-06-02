@@ -1,7 +1,6 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch } from '@nestjs/common';
 import { CartService } from './cart.service';
-import { CreateCartDto } from './dto/create-cart.dto';
-import { UpdateCartDto } from './dto/update-cart.dto';
+import { CreateCartDto, CreateCartItemDto } from './dto/create-cart.dto';
 
 @Controller('cart')
 export class CartController {
@@ -12,23 +11,23 @@ export class CartController {
     return this.cartService.create(createCartDto);
   }
 
-  @Get()
-  findAll() {
-    return this.cartService.findAll();
+  @Post('item')
+  addItem(@Body() createCartItemDto: CreateCartItemDto) {
+    return this.cartService.addItem(createCartItemDto);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.cartService.findOne(+id);
+  @Get('pendente')
+  getCurrentCartWithItems() {
+    return this.cartService.getCurrentCartWithItems();
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
-    return this.cartService.update(+id, updateCartDto);
+  @Patch('finalizar')
+  async finalizarCart() {
+    return this.cartService.finalizarCart();
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.cartService.remove(+id);
+  @Get('historico')
+  getHistoricoCarts() {
+    return this.cartService.getHistoricoCarts();
   }
 }
