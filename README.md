@@ -94,6 +94,16 @@ POST /cart/finalizar
 
 Veja `prisma/schema.prisma` para detalhes dos modelos `Product`, `Cart`, `CartItem`, `Colection` e enum `Size`.
 
+## Documentação Swagger
+
+A documentação interativa da API está disponível via Swagger.
+
+Após rodar a aplicação, acesse:
+
+- [http://localhost:3000/api](http://localhost:3000/api)
+
+Você pode visualizar, testar e explorar todos os endpoints da API diretamente pelo navegador.
+
 ## Observações
 - Mensagens de erro amigáveis e validação de dados via DTOs.
 - Banco SQLite local para fácil setup.
